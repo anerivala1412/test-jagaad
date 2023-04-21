@@ -1,0 +1,277 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Swagger Documentation For the KPIS",
+        "version": "1.0.0",
+        "title": "Notification API",
+        "contact": {
+            "email": "ethiofanjo@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http", "socket"],
+    "host": "localhost:3001",
+    "basePath": "/api",
+    "paths": {
+        "/auth/signup": {
+            "post": {
+                "summary": "User sign up",
+                "description": "Autenticate user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "notification object",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "notification": {
+                                "type": "object",
+                                "$ref": "#/definitions/signUp"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/signUpResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/signin": {
+            "post": {
+                "summary": "User sign in",
+                "description": "Autorization of user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "notification object",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "notification": {
+                                "type": "object",
+                                "$ref": "#/definitions/signIn"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/signInResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/add-notification": {
+            "post": {
+                "summary": "Save the notification",
+                "description": "Save the notification",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "notification object",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "notification": {
+                                "type": "object",
+                                "$ref": "#/definitions/notification"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/notificationResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/message": {
+            "get": {
+                "summary": "Get all the user notifications",
+                "description": "Get all the user notifications",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/notificationResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "notificationResponse": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "integer"
+                },
+                "notifications": [{
+                    "type": "string",
+                    "required": true
+                }],
+                "email": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string",
+                    "ref": "User",
+                    "required": true
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "notification": {
+            "type": "object",
+            "properties": {
+                "notifications": [{
+                    "type": "string"
+                }],
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        },
+        "signInResponse": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "signIn": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "signUp": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "required": true
+                },
+                "email": {
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "signUpResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
