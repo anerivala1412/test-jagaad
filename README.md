@@ -18,4 +18,7 @@ DB_URL_DEVELOPEMENT= mongodb://0.0.0.0:27017/jagaad <br>
 PORT=3001<br>
 MAIL_ACCOUNT= xyz@gmail.com<br>
 SENDGRID_API_KEY= senderGridApiKey<br>
-## License
+
+# API documentation you can find on 
+
+http://localhost:3001/api-docs
