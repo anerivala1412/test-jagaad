@@ -14,7 +14,7 @@ yarn install
 npm start
 
 ## To Update Env value
-Have used SendGrid for sending email. You have to add senderGrid api key and the source valid email which has been used with senderGrid.
+Have used SendGrid for sending email. You have to add senderGrid api key and the valid source email which has been used with senderGrid.
 
 
 DB_URL_DEVELOPEMENT= mongodb://0.0.0.0:27017/jagaad <br>
