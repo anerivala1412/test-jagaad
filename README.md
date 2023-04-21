@@ -8,7 +8,10 @@ Use the package manager [yarn](https://classic.yarnpkg.com/lang/en/docs/install/
 
 ```bash
 npm install --global yarn
+yarn install
 ```
+## Start The project
+npm start
 
 ## To Update Env value
 Have used SendGrid for sending email. You have to add senderGrid api key and the source valid email which has been used with senderGrid.
