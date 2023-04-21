@@ -14,8 +14,8 @@ npm install --global yarn
 Have used SendGrid for sending email. You have to add senderGrid api key and the source valid email which has been used with senderGrid.
 
 
-DB_URL_DEVELOPEMENT= mongodb://0.0.0.0:27017/jagaad
-PORT=3001
-MAIL_ACCOUNT= xyz@gmail.com
-SENDGRID_API_KEY= senderGridApiKey
+DB_URL_DEVELOPEMENT= mongodb://0.0.0.0:27017/jagaad <br>
+PORT=3001<br>
+MAIL_ACCOUNT= xyz@gmail.com<br>
+SENDGRID_API_KEY= senderGridApiKey<br>
 ## License
